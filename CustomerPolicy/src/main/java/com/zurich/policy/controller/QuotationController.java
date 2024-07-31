@@ -20,6 +20,9 @@ import com.zurich.policy.exception.BadRequestException;
 import com.zurich.policy.exception.ResourceNotFoundException;
 import com.zurich.policy.service.QuotationService;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+
 @RestController
 @RequestMapping("/api")
 @EnableRetry
@@ -28,6 +31,8 @@ public class QuotationController {
 	@Autowired
 	QuotationService quotationService;
 
+	@Operation(summary = "List of Quotations Issued", description = "Listed all Quotations issued from the core system.")
+	@ApiResponse(responseCode = "201", description = "Successfully listed all the quotations")
 	@GetMapping("/v1/quotations")
 	public ResponseEntity<List<Quotation>> getQuotations() {
 		List<Quotation> quotations = quotationService.getQuotations();
@@ -38,6 +43,8 @@ public class QuotationController {
 		}
 	}
 
+	@Operation(summary = "Listed Selected Quotation", description = "Listed the selected quotation issued from the core system.")
+	@ApiResponse(responseCode = "201", description = "Successfully listed the selected quotation")
 	@GetMapping("/v1/quotation")
 	public ResponseEntity<Quotation> getQuotation(@RequestParam(required = true) String quotationId) {
 		if (!quotationId.isEmpty() || !quotationId.isBlank()) {
@@ -52,6 +59,8 @@ public class QuotationController {
 		}
 	}
 
+	@Operation(summary = "Saving Quotation", description = "Saving quotation to the core system.")
+	@ApiResponse(responseCode = "201", description = "Successfully saved the quotation")
 	@PostMapping("/v1/quotation")
 	public ResponseEntity<Quotation> saveQuotation(@RequestBody Quotation quotation) {
 		if (quotation != null) {
@@ -62,6 +71,8 @@ public class QuotationController {
 		}
 	}
 
+	@Operation(summary = "Updating Quotation", description = "Updating quotation to the core system.")
+	@ApiResponse(responseCode = "201", description = "Successfully updated the quotation")
 	@PutMapping("/v1/quotation")
 	public ResponseEntity<Quotation> updateQuotation(@RequestBody Quotation quotation) {
 		if (quotation != null) {

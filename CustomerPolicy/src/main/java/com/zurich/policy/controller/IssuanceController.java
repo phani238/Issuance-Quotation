@@ -20,6 +20,9 @@ import com.zurich.policy.exception.BadRequestException;
 import com.zurich.policy.exception.ResourceNotFoundException;
 import com.zurich.policy.service.IssuanceService;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+
 @RestController
 @RequestMapping("/api")
 @EnableRetry
@@ -28,6 +31,8 @@ public class IssuanceController {
 	@Autowired
 	IssuanceService issuanceService;
 
+	@Operation(summary = "List of Policies Issued", description = "Listed all Policies issued from the core system.")
+	@ApiResponse(responseCode = "201", description = "Successfully listed all the policies")
 	@GetMapping("/v1/issuances")
 	public ResponseEntity<List<PolicyIssuance>> getIssuances() {
 		List<PolicyIssuance> issuances = issuanceService.getIssuances();
@@ -38,6 +43,8 @@ public class IssuanceController {
 		}
 	}
 
+	@Operation(summary = "Listed Selected Policy", description = "Listed the selected policy issued from the core system.")
+	@ApiResponse(responseCode = "201", description = "Successfully listed the selected policy")
 	@GetMapping("/v1/issuance")
 	public ResponseEntity<PolicyIssuance> getIssuance(@RequestParam(required = true) String polIssuanceId) {
 		if (!polIssuanceId.isEmpty() || !polIssuanceId.isBlank()) {
@@ -52,6 +59,8 @@ public class IssuanceController {
 		}
 	}
 
+	@Operation(summary = "Saving Policy", description = "Saving policy to the core system.")
+	@ApiResponse(responseCode = "201", description = "Successfully issued the policy")
 	@PostMapping("/v1/issuance")
 	public ResponseEntity<PolicyIssuance> saveIssuance(@RequestBody PolicyIssuance issuance) {
 		if (issuance != null) {
@@ -62,6 +71,8 @@ public class IssuanceController {
 		}
 	}
 
+	@Operation(summary = "Updating Policy", description = "Updating policy to the core system.")
+	@ApiResponse(responseCode = "201", description = "Successfully updated the policy")
 	@PutMapping("/v1/issuance")
 	public ResponseEntity<PolicyIssuance> updateIssuance(@RequestBody PolicyIssuance issuance) {
 		if (issuance != null) {

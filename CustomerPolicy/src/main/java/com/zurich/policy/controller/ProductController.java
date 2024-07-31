@@ -20,6 +20,9 @@ import com.zurich.policy.exception.BadRequestException;
 import com.zurich.policy.exception.ResourceNotFoundException;
 import com.zurich.policy.service.ProductService;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+
 @RestController
 @RequestMapping("/api")
 @EnableRetry
@@ -28,6 +31,8 @@ public class ProductController {
 	@Autowired
 	ProductService productService;
 
+	@Operation(summary = "List of Products", description = "Listed all products from the core system.")
+	@ApiResponse(responseCode = "201", description = "Successfully listed all the products")
 	@GetMapping("/v1/products")
 	public ResponseEntity<List<Product>> getProducts() {
 		List<Product> policies = productService.getProducts();
@@ -38,6 +43,8 @@ public class ProductController {
 		}
 	}
 
+	@Operation(summary = "Listed Selected Product", description = "Listed the selected product issued from the core system.")
+	@ApiResponse(responseCode = "201", description = "Successfully listed the selected product")
 	@GetMapping("/v1/product")
 	public ResponseEntity<Product> getProduct(@RequestParam(required = true) String productId) {
 		if (!productId.isEmpty() || !productId.isBlank()) {
@@ -52,6 +59,8 @@ public class ProductController {
 		}
 	}
 
+	@Operation(summary = "Saving Product", description = "Saving product to the core system.")
+	@ApiResponse(responseCode = "201", description = "Successfully saved the product")
 	@PostMapping("/v1/product")
 	public ResponseEntity<Product> saveproduct(@RequestBody Product product) {
 		if (product != null) {
@@ -62,6 +71,8 @@ public class ProductController {
 		}
 	}
 
+	@Operation(summary = "Updating Product", description = "Updating product to the core system.")
+	@ApiResponse(responseCode = "201", description = "Successfully updated the product")
 	@PutMapping("/v1/product")
 	public ResponseEntity<Product> updateproduct(@RequestBody Product product) {
 		if (product != null) {

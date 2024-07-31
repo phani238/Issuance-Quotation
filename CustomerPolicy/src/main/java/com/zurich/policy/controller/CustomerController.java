@@ -20,6 +20,9 @@ import com.zurich.policy.exception.BadRequestException;
 import com.zurich.policy.exception.ResourceNotFoundException;
 import com.zurich.policy.service.CustomerService;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+
 @RestController
 @RequestMapping("/api")
 @EnableRetry
@@ -28,6 +31,8 @@ public class CustomerController {
 	@Autowired
 	CustomerService customerService;
 
+	@Operation(summary = "List of Customers", description = "Listed all customers from the core system.")
+	@ApiResponse(responseCode = "201", description = "Successfully listed all the customers")
 	@GetMapping("/v1/customers")
 	public ResponseEntity<List<Customer>> getProducts() {
 		List<Customer> customers = customerService.getCustomers();
@@ -38,6 +43,8 @@ public class CustomerController {
 		}
 	}
 
+	@Operation(summary = "Listed Selected Customer", description = "Listed the selected customer issued from the core system.")
+	@ApiResponse(responseCode = "201", description = "Successfully listed the selected customer")
 	@GetMapping("/v1/customer")
 	public ResponseEntity<Customer> getCustomer(@RequestParam(required = true) String customerId) {
 		if (!customerId.isEmpty() || !customerId.isBlank()) {
@@ -52,6 +59,8 @@ public class CustomerController {
 		}
 	}
 
+	@Operation(summary = "Saving Customer", description = "Saving customer to the core system.")
+	@ApiResponse(responseCode = "201", description = "Successfully saved the customer")
 	@PostMapping("/v1/customer")
 	public ResponseEntity<Customer> saveCustomer(@RequestBody Customer customer) {
 		if (customer != null) {
@@ -62,6 +71,8 @@ public class CustomerController {
 		}
 	}
 
+	@Operation(summary = "Updating Customer", description = "Updating customer to the core system.")
+	@ApiResponse(responseCode = "201", description = "Successfully updated the customer")
 	@PutMapping("/v1/customer")
 	public ResponseEntity<Customer> updateCustomer(@RequestBody Customer customer) {
 		if (customer != null) {

@@ -1,0 +1,589 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "OpenAPI definition",
+    "version": "v0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:8888",
+      "description": "Generated server url"
+    }
+  ],
+  "paths": {
+    "/api/v1/quotation": {
+      "get": {
+        "tags": [
+          "quotation-controller"
+        ],
+        "summary": "Listed Selected Quotation",
+        "description": "Listed the selected quotation issued from the core system.",
+        "operationId": "getQuotation",
+        "parameters": [
+          {
+            "name": "quotationId",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Successfully listed the selected quotation",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/Quotation"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "quotation-controller"
+        ],
+        "summary": "Updating Quotation",
+        "description": "Updating quotation to the core system.",
+        "operationId": "updateQuotation",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Quotation"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Successfully updated the quotation",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/Quotation"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "quotation-controller"
+        ],
+        "summary": "Saving Quotation",
+        "description": "Saving quotation to the core system.",
+        "operationId": "saveQuotation",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Quotation"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Successfully saved the quotation",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/Quotation"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/product": {
+      "get": {
+        "tags": [
+          "product-controller"
+        ],
+        "summary": "Listed Selected Product",
+        "description": "Listed the selected product issued from the core system.",
+        "operationId": "getProduct",
+        "parameters": [
+          {
+            "name": "productId",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Successfully listed the selected product",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/Product"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "product-controller"
+        ],
+        "summary": "Updating Product",
+        "description": "Updating product to the core system.",
+        "operationId": "updateproduct",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Product"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Successfully updated the product",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/Product"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "product-controller"
+        ],
+        "summary": "Saving Product",
+        "description": "Saving product to the core system.",
+        "operationId": "saveproduct",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Product"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Successfully saved the product",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/Product"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/issuance": {
+      "get": {
+        "tags": [
+          "issuance-controller"
+        ],
+        "summary": "Listed Selected Policy",
+        "description": "Listed the selected policy issued from the core system.",
+        "operationId": "getIssuance",
+        "parameters": [
+          {
+            "name": "polIssuanceId",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Successfully listed the selected policy",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/PolicyIssuance"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "issuance-controller"
+        ],
+        "summary": "Updating Policy",
+        "description": "Updating policy to the core system.",
+        "operationId": "updateIssuance",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PolicyIssuance"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Successfully updated the policy",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/PolicyIssuance"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "issuance-controller"
+        ],
+        "summary": "Saving Policy",
+        "description": "Saving policy to the core system.",
+        "operationId": "saveIssuance",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PolicyIssuance"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Successfully issued the policy",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/PolicyIssuance"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/customer": {
+      "get": {
+        "tags": [
+          "customer-controller"
+        ],
+        "summary": "Listed Selected Customer",
+        "description": "Listed the selected customer issued from the core system.",
+        "operationId": "getCustomer",
+        "parameters": [
+          {
+            "name": "customerId",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Successfully listed the selected customer",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/Customer"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "customer-controller"
+        ],
+        "summary": "Updating Customer",
+        "description": "Updating customer to the core system.",
+        "operationId": "updateCustomer",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Customer"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Successfully updated the customer",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/Customer"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "customer-controller"
+        ],
+        "summary": "Saving Customer",
+        "description": "Saving customer to the core system.",
+        "operationId": "saveCustomer",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Customer"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Successfully saved the customer",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/Customer"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/quotations": {
+      "get": {
+        "tags": [
+          "quotation-controller"
+        ],
+        "summary": "List of Quotations Issued",
+        "description": "Listed all Quotations issued from the core system.",
+        "operationId": "getQuotations",
+        "responses": {
+          "201": {
+            "description": "Successfully listed all the quotations",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Quotation"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/products": {
+      "get": {
+        "tags": [
+          "product-controller"
+        ],
+        "summary": "List of Products",
+        "description": "Listed all products from the core system.",
+        "operationId": "getProducts",
+        "responses": {
+          "201": {
+            "description": "Successfully listed all the products",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Product"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/issuances": {
+      "get": {
+        "tags": [
+          "issuance-controller"
+        ],
+        "summary": "List of Policies Issued",
+        "description": "Listed all Policies issued from the core system.",
+        "operationId": "getIssuances",
+        "responses": {
+          "201": {
+            "description": "Successfully listed all the policies",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/PolicyIssuance"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/customers": {
+      "get": {
+        "tags": [
+          "customer-controller"
+        ],
+        "summary": "List of Customers",
+        "description": "Listed all customers from the core system.",
+        "operationId": "getProducts_1",
+        "responses": {
+          "201": {
+            "description": "Successfully listed all the customers",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Customer"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Customer": {
+        "type": "object",
+        "properties": {
+          "customerId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "customertName": {
+            "type": "string"
+          }
+        }
+      },
+      "Product": {
+        "type": "object",
+        "properties": {
+          "productId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "productName": {
+            "type": "string"
+          },
+          "price": {
+            "type": "number",
+            "format": "double"
+          }
+        }
+      },
+      "Quotation": {
+        "type": "object",
+        "properties": {
+          "quotationId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "startDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "endDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "discount": {
+            "type": "number",
+            "format": "double"
+          },
+          "quotedPrice": {
+            "type": "number",
+            "format": "double"
+          },
+          "status": {
+            "type": "boolean"
+          },
+          "statusCode": {
+            "type": "string"
+          },
+          "product": {
+            "$ref": "#/components/schemas/Product"
+          },
+          "customer": {
+            "$ref": "#/components/schemas/Customer"
+          }
+        }
+      },
+      "PolicyIssuance": {
+        "type": "object",
+        "properties": {
+          "polIssuanceId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "startDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "endDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "finalDiscount": {
+            "type": "number",
+            "format": "double"
+          },
+          "finalPrice": {
+            "type": "number",
+            "format": "double"
+          },
+          "status": {
+            "type": "boolean"
+          },
+          "statusCode": {
+            "type": "string"
+          },
+          "product": {
+            "$ref": "#/components/schemas/Product"
+          },
+          "customer": {
+            "$ref": "#/components/schemas/Customer"
+          }
+        }
+      }
+    }
+  }
+}
